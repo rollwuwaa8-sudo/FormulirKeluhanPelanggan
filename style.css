@@ -1,27 +1,14 @@
 :root {
     --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --bg-color: #f8fafc;
-    --text-color: #1e293b;
-    --error-color: #ef4444;
     --success-color: #10b981;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    --bg-color: #f8fafc;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     padding: 20px;
 }
 
@@ -29,97 +16,34 @@ body {
     background: white;
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
     width: 100%;
     max-width: 500px;
 }
 
-header {
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-header p {
-    font-size: 0.9rem;
-    color: #64748b;
-}
-
-.form-group {
-    margin-bottom: 1.2rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
+.form-group { margin-bottom: 1.2rem; }
+label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
 input, select, textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: border-color 0.2s;
-}
-
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
+    width: 100%; padding: 0.75rem;
+    border: 1px solid #cbd5e1; border-radius: 6px;
 }
 
 button {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-button:hover {
-    background-color: var(--secondary-color);
-}
-
-#statusMessage {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    border-radius: 6px;
-    text-align: center;
+    width: 100%; padding: 0.75rem;
+    background: var(--primary-color); color: white;
+    border: none; border-radius: 6px; cursor: pointer;
 }
 
 .hidden { display: none; }
-.success { background-color: #dcfce7; color: var(--success-color); }
-.error { background-color: #fee2e2; color: var(--error-color); }
 
-/* Tambahkan di akhir file style.css */
+#statusMessage {
+    padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center;
+}
+.success { background: #dcfce7; color: var(--success-color); }
+.error { background: #fee2e2; color: #ef4444; }
+
 #resultDisplay {
-    margin-top: 20px;
-    padding: 15px;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    background-color: #f1f5f9;
+    text-align: center; border-top: 2px solid #e2e8f0; padding-top: 1rem;
 }
-
-#resultDisplay h3 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    color: var(--primary-color);
-}
-
-#summaryContent li {
-    margin-bottom: 8px;
-    border-bottom: 1px solid #cbd5e1;
-    padding-bottom: 4px;
-}
+.summary-item { text-align: left; background: #f1f5f9; padding: 10px; margin-top: 5px; border-radius: 4px; }
+.btn-reload { margin-top: 15px; background: #64748b; }

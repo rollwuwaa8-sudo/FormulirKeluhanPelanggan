@@ -1,4 +1,4 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxiAmU9FC3tiabRH4GrEJGfbhLDsei8lyO6Ss9gInE8l_8jMuFDmRRfTJirgD9xfsUD/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwov6GSeMMLkIPoy0s4AjqgC5tgi0RjCpe17UuVj_lhTuMaYmInv6zzyQmOyHzvPSRh/exec';
 const form = document.getElementById('complaintForm');
 const btn = document.getElementById('submitBtn');
 const msg = document.getElementById('statusMessage');
@@ -8,32 +8,26 @@ const summaryContent = document.getElementById('summaryContent');
 form.addEventListener('submit', e => {
     e.preventDefault();
     btn.disabled = true;
-    btn.innerText = 'Mengirim...';
+    btn.innerText = 'Sedang Mengirim...';
     
-    // Ambil data dari form untuk ditampilkan nanti
     const formData = new FormData(form);
     const dataObj = Object.fromEntries(formData.entries());
 
     fetch(scriptURL, { method: 'POST', body: formData})
         .then(response => {
             btn.disabled = false;
-            btn.innerText = 'Kirim Keluhan';
-            
-            // Sembunyikan form dan tampilkan pesan sukses
             form.classList.add('hidden');
+            document.getElementById('formHeader').classList.add('hidden');
+            
             msg.classList.remove('hidden');
             msg.classList.add('success');
-            msg.innerText = 'Terima kasih! Keluhan Anda telah terkirim.';
+            msg.innerText = 'Keluhan Berhasil Diterima!';
 
-            // Tampilkan data yang baru saja dikirim
             resultDisplay.classList.remove('hidden');
             summaryContent.innerHTML = `
-                <ul style="list-style: none; padding: 0; text-align: left;">
-                    <li><strong>Nama:</strong> ${dataObj.nama}</li>
-                    <li><strong>Email:</strong> ${dataObj.email}</li>
-                    <li><strong>Kategori:</strong> ${dataObj.kategori}</li>
-                    <li><strong>Pesan:</strong> ${dataObj.pesan}</li>
-                </ul>
+                <div class="summary-item"><strong>Nama:</strong> ${dataObj.nama}</div>
+                <div class="summary-item"><strong>Kategori:</strong> ${dataObj.kategori}</div>
+                <div class="summary-item"><strong>Pesan:</strong> ${dataObj.pesan}</div>
             `;
         })
         .catch(error => {
@@ -41,7 +35,6 @@ form.addEventListener('submit', e => {
             btn.innerText = 'Kirim Keluhan';
             msg.classList.remove('hidden');
             msg.classList.add('error');
-            msg.innerText = 'Maaf, terjadi kesalahan.';
-            console.error('Error!', error.message);[cite: 3]
+            msg.innerText = 'Gagal mengirim. Cek koneksi atau URL script.';
         });
 });

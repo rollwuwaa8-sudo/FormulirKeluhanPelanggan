@@ -8,11 +8,12 @@
 </head>
 <body>
     <div class="container">
-        <header>
+        <header id="formHeader">
             <h1>Layanan Keluhan Pelanggan</h1>
-            <p>Sampaikan keluhan atau saran Anda untuk membantu kami menjadi lebih baik.</p>
+            <p>Sampaikan keluhan Anda untuk membantu kami menjadi lebih baik.</p>
         </header>
 
+        <!-- Form Input -->
         <form id="complaintForm">
             <div class="form-group">
                 <label for="nama">Nama Lengkap</label>
@@ -42,21 +43,23 @@
 
             <div class="form-group">
                 <label for="pesan">Detail Keluhan</label>
-                <textarea id="pesan" name="pesan" rows="5" required placeholder="Jelaskan masalah yang Anda alami..."></textarea>
+                <textarea id="pesan" name="pesan" rows="5" required placeholder="Jelaskan masalah Anda..."></textarea>
             </div>
 
             <button type="submit" id="submitBtn">Kirim Keluhan</button>
         </form>
 
+        <!-- Status Pesan -->
         <div id="statusMessage" class="hidden"></div>
-    </div>
 
-                
-       <div id="resultDisplay" class="hidden">
-            <h3>Detail Keluhan Anda:</h3>
+        <!-- Tampilan Data Setelah Kirim -->
+        <div id="resultDisplay" class="hidden">
+            <div class="success-icon">✓</div>
+            <h3>Data Berhasil Dikirim</h3>
             <div id="summaryContent"></div>
-            <button onclick="window.location.reload()" style="margin-top: 15px; background-color: #64748b;">Kirim Keluhan Baru</button>
+            <button onclick="window.location.reload()" class="btn-reload">Kirim Keluhan Baru</button>
         </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

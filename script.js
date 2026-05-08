@@ -1,4 +1,4 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwov6GSeMMLkIPoy0s4AjqgC5tgi0RjCpe17UuVj_lhTuMaYmInv6zzyQmOyHzvPSRh/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxEriKHgUXDdQbkQLFs47IoVz4xAkbXh2WKX9AIjE2eawitik-SjNGvRZwjl4XuLY3w/exec';
 const form = document.getElementById('complaintForm');
 const btn = document.getElementById('submitBtn');
 const msg = document.getElementById('statusMessage');
